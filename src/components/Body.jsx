@@ -42,7 +42,7 @@ const Body = () => {
           scissors
         </button>
       </div>
-      <div>
+      <div className="text-center">
         <h2 className="text-green-700 font-bold text-[50px]">{result}</h2>
       </div>
     </div>
