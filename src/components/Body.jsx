@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 const generateRandom = () => {
   const myArray = ["stone", "paper", "scissors"];
   const randomElement = myArray[Math.floor(Math.random() * myArray.length)];
@@ -12,9 +11,11 @@ const Body = () => {
   const handleGame = (value) => {
     const randomElement = generateRandom();
     if (randomElement === value) setResult("It's a Tie");
-    else if (randomElement === "rock" && value === "scissors")
+    else if (randomElement === "stone" && value === "paper")
       setResult("player wins");
-    else if (randomElement === "scissors" && value === "paper")
+    else if (randomElement === "scissors" && value === "stone")
+      setResult("player wins");
+    else if (randomElement === "paper" && value === "scissors")
       setResult("player wins");
     else setResult("computer wins");
   };
@@ -35,14 +36,14 @@ const Body = () => {
           paper
         </button>
         <button
-          onClick={() => handleGame("scissor")}
+          onClick={() => handleGame("scissors")}
           className="m-12 border-2 p-5 bg-black text-white cursor-pointer hover:bg-slate-600"
         >
-          scissor
+          scissors
         </button>
       </div>
       <div>
-        <p style={{ color: "green" }}>{result}</p>
+        <h2 className="text-green-700 font-bold text-[50px]">{result}</h2>
       </div>
     </div>
   );
